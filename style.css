@@ -5,7 +5,7 @@
     --black: #333;
     --white: #fff;
     --light-color: #666;
-    --border: 2rem solid var(--black);
+    --border: 1rem solid var(--black);
     --box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
 }
 
@@ -21,7 +21,10 @@
     transition: .2s linear;
 }
 
-
+*::selection { /* seleciona com mouse e a cor muda */
+    background-color: var(--main-color);
+    color: var(--white);
+}
 
 ::-webkit-scrollbar{
     height: 0.5rem;
@@ -34,4 +37,105 @@
 
 ::-webkit-scrollbar-thumb { /* a barra arrastável de rolagem. */
     background-color: var(--main-color);
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    position: sticky; /* will stay in same place */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    z-index: 10000;
+}
+
+.header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 1.5rem 2rem;
+}
+
+.header .flex .logo img {
+    height: 4.5rem;
+}
+
+.header .flex .navbar a {
+    margin-left: 2rem;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.header .flex .navbar a:hover {
+    text-decoration: underline;
+    color: var(--main-color);
+}
+
+#menu-btn {
+    display: none; /* retira o elemento do layout da página. Mas você ainda pode continuar manipulando ele no DOM. */
+    font-size: 2.5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.home-bgn {
+    background:linear-gradient(90deg, var(--white), transparent 70%), url(images/home-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-bgn .home {
+    min-height: 70rem;
+}
+
+
+/* media querias */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .flex .navbar {
+        position: absolute;
+        top: 99%; left: 0; right: 0;
+        background-color: var(--white);
+        border-top: var(--border);
+        border-bottom: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* esconde navbar conteudo  */
+    }
+
+    .header .flex .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); /* mostra navbar conteudo */
+    }
+
+    .header .flex .navbar a{
+    display: block;
+    margin: 2rem;
+    }
+}
+
+@media (max-width: 540px) {
+    html {
+        font-size: 50%;
+    }
 }
