@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;1,300&display=swap');
+
+:root {
+    --main-color: #be9c79;
+    --black: #333;
+    --white: #fff;
+    --light-color: #666;
+    --border: 2rem solid var(--black);
+    --box-shadow: 0 0.5rem 1rem rgba(0,0,0,.1);
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+
+
+::-webkit-scrollbar{
+    height: 0.5rem;
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track{ /*  o caminho (barra de progresso) da barra de rolagem onde há uma barra cinza encima de uma barra branca.*/
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb { /* a barra arrastável de rolagem. */
+    background-color: var(--main-color);
+}
